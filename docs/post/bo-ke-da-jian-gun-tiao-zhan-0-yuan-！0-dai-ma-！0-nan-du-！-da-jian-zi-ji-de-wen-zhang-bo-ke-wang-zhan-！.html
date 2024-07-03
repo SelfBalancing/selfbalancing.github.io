@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html data-color-mode="light" data-dark-theme="dark" data-light-theme="light" lang="zh-CN">
+<head>
+    <meta content="text/html; charset=utf-8" http-equiv="content-type" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href='https://mirrors.sustech.edu.cn/cdnjs/ajax/libs/Primer/21.0.7/primer.css' rel='stylesheet' />
+    <link rel="icon" href="https://avatars.githubusercontent.com/u/174597645?v=4"><script>
+        let theme = localStorage.getItem("meek_theme") || "light";
+        document.documentElement.setAttribute("data-color-mode", theme);
+    </script>
+<meta name="description" content="
+
+## 前言
+
+不知不觉，写公众号文章已近半年，也有了20多篇拙作，有时候闲下来就想输出点东西，不得不说，公众号的文章的排版是非常强的，全平台图文质量巅峰，但是有个问题就是写完文章后的想再次修改比较麻烦，限制也比较多。">
+<meta property="og:title" content="博客搭建丨挑战0元！0代码！0难度！搭建自己的文章博客网站！">
+<meta property="og:description" content="
+
+## 前言
+
+不知不觉，写公众号文章已近半年，也有了20多篇拙作，有时候闲下来就想输出点东西，不得不说，公众号的文章的排版是非常强的，全平台图文质量巅峰，但是有个问题就是写完文章后的想再次修改比较麻烦，限制也比较多。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://selfbalancing.github.io/post/bo-ke-da-jian-gun-tiao-zhan-0-yuan-%EF%BC%810-dai-ma-%EF%BC%810-nan-du-%EF%BC%81-da-jian-zi-ji-de-wen-zhang-bo-ke-wang-zhan-%EF%BC%81.html">
+<meta property="og:image" content="https://avatars.githubusercontent.com/u/174597645?v=4">
+<title>博客搭建丨挑战0元！0代码！0难度！搭建自己的文章博客网站！</title>
+
+
+</head>
+<style>
+body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;padding: 45px;font-size: 16px;font-family: sans-serif;line-height: 1.25;}
+#header{display:flex;padding-bottom:8px;border-bottom: 1px solid var(--borderColor-muted, var(--color-border-muted));margin-bottom: 16px;}
+#footer {margin-top:64px; text-align: center;font-size: small;}
+
+</style>
+
+<style>
+.postTitle{margin: auto 0;font-size:40px;font-weight:bold;}
+.title-right{display:flex;margin:auto 0 0 auto;}
+.title-right .circle{padding: 14px 16px;margin-right:8px;}
+#postBody{border-bottom: 1px solid var(--color-border-default);padding-bottom:36px;}
+#postBody hr{height:2px;}
+#cmButton{height:48px;margin-top:48px;}
+#comments{margin-top:64px;}
+.g-emoji{font-size:24px;}
+@media (max-width: 600px) {
+    body {padding: 8px;}
+    .postTitle{font-size:24px;}
+}
+</style>
+<style>.markdown-alert{padding:0.5rem 1rem;margin-bottom:1rem;border-left:.25em solid var(--borderColor-default,var(--color-border-default));}.markdown-alert .markdown-alert-title {display:flex;font-weight:var(--base-text-weight-medium,500);align-items:center;line-height:1;}.markdown-alert>:first-child {margin-top:0;}.markdown-alert>:last-child {margin-bottom:0;}</style><style>.markdown-alert.markdown-alert-note {border-left-color:var(--borderColor-accent-emphasis, var(--color-accent-emphasis));background-color:var(--color-accent-subtle);}.markdown-alert.markdown-alert-note .markdown-alert-title {color: var(--fgColor-accent,var(--color-accent-fg));}</style><style>.markdown-alert.markdown-alert-tip {border-left-color:var(--borderColor-success-emphasis, var(--color-success-emphasis));background-color:var(--color-success-subtle);}.markdown-alert.markdown-alert-tip .markdown-alert-title {color: var(--fgColor-success,var(--color-success-fg));}</style><style>.markdown-alert.markdown-alert-important {border-left-color:var(--borderColor-done-emphasis, var(--color-done-emphasis));background-color:var(--color-done-subtle);}.markdown-alert.markdown-alert-important .markdown-alert-title {color: var(--fgColor-done,var(--color-done-fg));}</style><style>.markdown-alert.markdown-alert-warning {border-left-color:var(--borderColor-attention-emphasis, var(--color-attention-emphasis));background-color:var(--color-attention-subtle);}.markdown-alert.markdown-alert-warning .markdown-alert-title {color: var(--fgColor-attention,var(--color-attention-fg));}</style><style>.markdown-alert.markdown-alert-caution {border-left-color:var(--borderColor-danger-emphasis, var(--color-danger-emphasis));background-color:var(--color-danger-subtle);}.markdown-alert.markdown-alert-caution .markdown-alert-title {color: var(--fgColor-danger,var(--color-danger-fg));}</style>
+
+
+
+<body>
+    <div id="header">
+<h1 class="postTitle">博客搭建丨挑战0元！0代码！0难度！搭建自己的文章博客网站！</h1>
+<div class="title-right">
+    <a href="https://selfbalancing.github.io" id="buttonHome" class="btn btn-invisible circle" title="首页">
+        <svg class="octicon" width="16" height="16">
+            <path id="pathHome" fill-rule="evenodd"></path>
+        </svg>
+    </a>
+    
+    <a href="https://github.com/SelfBalancing/selfbalancing.github.io/issues/1" target="_blank" class="btn btn-invisible circle" title="Issue">
+        <svg class="octicon" width="16" height="16">
+            <path id="pathIssue" fill-rule="evenodd"></path>
+        </svg>
+    </a>
+    
+
+    <a class="btn btn-invisible circle" onclick="modeSwitch();" title="切换主题">
+        <svg class="octicon" width="16" height="16" >
+            <path id="themeSwitch" fill-rule="evenodd"></path>
+        </svg>
+    </a>
+
+</div>
+</div>
+    <div id="content">
+<div class="markdown-body" id="postBody"><h2>前言</h2>
+<p>不知不觉，写公众号文章已近半年，也有了20多篇拙作，有时候闲下来就想输出点东西，不得不说，公众号的文章的排版是非常强的，全平台图文质量巅峰，但是有个问题就是写完文章后的想再次修改比较麻烦，限制也比较多。</p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/7c66094d3f5b678076f26e681f520c257f927bf003087691f1355aab81560f9c/68747470733a2f2f6f6273696469616e2d313332343931393831342e636f732e61702d6368656e6764752e6d7971636c6f75642e636f6d2f32303234303632373232343331362e706e67"><img src="https://camo.githubusercontent.com/7c66094d3f5b678076f26e681f520c257f927bf003087691f1355aab81560f9c/68747470733a2f2f6f6273696469616e2d313332343931393831342e636f732e61702d6368656e6764752e6d7971636c6f75642e636f6d2f32303234303632373232343331362e706e67" alt="" data-canonical-src="https://obsidian-1324919814.cos.ap-chengdu.myqcloud.com/20240627224316.png" style="max-width: 100%;"></a></p>
+<p>此时就萌生了搭建一个文章博客网站的想法，但是看了不少教程，的确有很多功能强大的博客搭建教程，但是都太强大了，以至于配置过程比较麻烦，且还需要购买云服务器进行部署，而我只想要一个能展示静态文章的网页，以及能够方便地上传文章即可。</p>
+<p>直到今天，在Github上看到了一个项目，可以0元！0代码！0难度！快速搭建自己的文章博客网站，</p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/9e9750abe921bda5c739d252341f1a5a2bac43cd732101fd756c82008f522589/68747470733a2f2f6f6273696469616e2d313332343931393831342e636f732e61702d6368656e6764752e6d7971636c6f75642e636f6d2f32303234303632373232353433362e706e67"><img src="https://camo.githubusercontent.com/9e9750abe921bda5c739d252341f1a5a2bac43cd732101fd756c82008f522589/68747470733a2f2f6f6273696469616e2d313332343931393831342e636f732e61702d6368656e6764752e6d7971636c6f75642e636f6d2f32303234303632373232353433362e706e67" alt="" data-canonical-src="https://obsidian-1324919814.cos.ap-chengdu.myqcloud.com/20240627225436.png" style="max-width: 100%;"></a></p>
+<p>搭建的速度，真的超快，只要网速好，甚至用不了18秒。</p>
+<h2>快快快速搭建步骤</h2>
+<h3>注册账号并打开项目</h3>
+<p>注册一个Github账号，邮箱都能注册</p>
+<pre class="notranslate"><code class="notranslate">https://github.com
+</code></pre>
+<p>浏览器输入以下网址,访问项目地址</p>
+<pre class="notranslate"><code class="notranslate">https://github.com/Meekdai/Gmeek
+</code></pre>
+<h3>创建仓库</h3>
+<p>点击蓝色的通过模板创建仓库<br>
+<a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/2b962a9f49688f1a9abf740b80a72173e1d4f6e9904d6f909ba5996181a805af/68747470733a2f2f6f6273696469616e2d313332343931393831342e636f732e61702d6368656e6764752e6d7971636c6f75642e636f6d2f32303234303632373233303535362e706e67"><img src="https://camo.githubusercontent.com/2b962a9f49688f1a9abf740b80a72173e1d4f6e9904d6f909ba5996181a805af/68747470733a2f2f6f6273696469616e2d313332343931393831342e636f732e61702d6368656e6764752e6d7971636c6f75642e636f6d2f32303234303632373233303535362e706e67" alt="" data-canonical-src="https://obsidian-1324919814.cos.ap-chengdu.myqcloud.com/20240627230556.png" style="max-width: 100%;"></a><br>
+然后在框里输入英文当这个库的名字（按照他的要求来，我输的是winhex89.github.io），然后点击右下方的绿色按钮。<br>
+<a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/a7725f35d3cb30863255245e96251a0e29c94ac409696f6a26ec8112ed1468e1/68747470733a2f2f6f6273696469616e2d313332343931393831342e636f732e61702d6368656e6764752e6d7971636c6f75642e636f6d2f32303234303632373232353933312e706e67"><img src="https://camo.githubusercontent.com/a7725f35d3cb30863255245e96251a0e29c94ac409696f6a26ec8112ed1468e1/68747470733a2f2f6f6273696469616e2d313332343931393831342e636f732e61702d6368656e6764752e6d7971636c6f75642e636f6d2f32303234303632373232353933312e706e67" alt="" data-canonical-src="https://obsidian-1324919814.cos.ap-chengdu.myqcloud.com/20240627225931.png" style="max-width: 100%;"></a></p>
+<p>fork完成之后，点击右上方的Setting<br>
+<a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/3b2e3ea2a56bc35c35aaaaa437e7f4e517127f3f27286a4cf911c5ba96392c8a/68747470733a2f2f6f6273696469616e2d313332343931393831342e636f732e61702d6368656e6764752e6d7971636c6f75642e636f6d2f32303234303632373233303132312e706e67"><img src="https://camo.githubusercontent.com/3b2e3ea2a56bc35c35aaaaa437e7f4e517127f3f27286a4cf911c5ba96392c8a/68747470733a2f2f6f6273696469616e2d313332343931393831342e636f732e61702d6368656e6764752e6d7971636c6f75642e636f6d2f32303234303632373233303132312e706e67" alt="" data-canonical-src="https://obsidian-1324919814.cos.ap-chengdu.myqcloud.com/20240627230121.png" style="max-width: 100%;"></a></p>
+<p>点击Pages，再选择Github Actions<br>
+<a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/18391f866830e89b03aeee613b4a5d4cf8a784edda5e3e2ba656717d4615b58b/68747470733a2f2f6f6273696469616e2d313332343931393831342e636f732e61702d6368656e6764752e6d7971636c6f75642e636f6d2f32303234303632373233303231392e706e67"><img src="https://camo.githubusercontent.com/18391f866830e89b03aeee613b4a5d4cf8a784edda5e3e2ba656717d4615b58b/68747470733a2f2f6f6273696469616e2d313332343931393831342e636f732e61702d6368656e6764752e6d7971636c6f75642e636f6d2f32303234303632373233303231392e706e67" alt="" data-canonical-src="https://obsidian-1324919814.cos.ap-chengdu.myqcloud.com/20240627230219.png" style="max-width: 100%;"></a></p>
+<h3>提交Issue当成文章</h3>
+<p>然后就开始写文章<br>
+点击上方的Issue，然后再点击绿色的New issue<br>
+<a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/e4ccd4a23b36d77ae9267914ea54e1e8e18f3ed6d396502aca1846efc2b4381d/68747470733a2f2f6f6273696469616e2d313332343931393831342e636f732e61702d6368656e6764752e6d7971636c6f75642e636f6d2f32303234303632373233303931332e706e67"><img src="https://camo.githubusercontent.com/e4ccd4a23b36d77ae9267914ea54e1e8e18f3ed6d396502aca1846efc2b4381d/68747470733a2f2f6f6273696469616e2d313332343931393831342e636f732e61702d6368656e6764752e6d7971636c6f75642e636f6d2f32303234303632373233303931332e706e67" alt="" data-canonical-src="https://obsidian-1324919814.cos.ap-chengdu.myqcloud.com/20240627230913.png" style="max-width: 100%;"></a></p>
+<p>我就直接上传我之前写的一篇文章，markdown格式的文本，直接上传即可<br>
+一定要选一个Labels，不然不会显示文章<br>
+<a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/debcb0464b52bb273e7b4585af31dedbdff17adeab4ab18a04ad96126e634242/68747470733a2f2f6f6273696469616e2d313332343931393831342e636f732e61702d6368656e6764752e6d7971636c6f75642e636f6d2f32303234303632373233313035392e706e67"><img src="https://camo.githubusercontent.com/debcb0464b52bb273e7b4585af31dedbdff17adeab4ab18a04ad96126e634242/68747470733a2f2f6f6273696469616e2d313332343931393831342e636f732e61702d6368656e6764752e6d7971636c6f75642e636f6d2f32303234303632373233313035392e706e67" alt="" data-canonical-src="https://obsidian-1324919814.cos.ap-chengdu.myqcloud.com/20240627231059.png" style="max-width: 100%;"></a></p>
+<p>然后点击绿色的Submit new issue，即可<br>
+<a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/4dc1a4e8be532e8f79c88d8faf5333fb3fcf84266f3fea07d3ffb3ba885620c7/68747470733a2f2f6f6273696469616e2d313332343931393831342e636f732e61702d6368656e6764752e6d7971636c6f75642e636f6d2f32303234303632373233313134332e706e67"><img src="https://camo.githubusercontent.com/4dc1a4e8be532e8f79c88d8faf5333fb3fcf84266f3fea07d3ffb3ba885620c7/68747470733a2f2f6f6273696469616e2d313332343931393831342e636f732e61702d6368656e6764752e6d7971636c6f75642e636f6d2f32303234303632373233313134332e706e67" alt="" data-canonical-src="https://obsidian-1324919814.cos.ap-chengdu.myqcloud.com/20240627231143.png" style="max-width: 100%;"></a></p>
+<p>点击上方的Actions，开始等待，当看见出现绿勾时，基本上可以了。<br>
+<a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/33724aa076d8e003bbb4ee200c0eaaf21d72168ab31f538e0fb73285899b4f6a/68747470733a2f2f6f6273696469616e2d313332343931393831342e636f732e61702d6368656e6764752e6d7971636c6f75642e636f6d2f32303234303632373233313431342e706e67"><img src="https://camo.githubusercontent.com/33724aa076d8e003bbb4ee200c0eaaf21d72168ab31f538e0fb73285899b4f6a/68747470733a2f2f6f6273696469616e2d313332343931393831342e636f732e61702d6368656e6764752e6d7971636c6f75642e636f6d2f32303234303632373233313431342e706e67" alt="" data-canonical-src="https://obsidian-1324919814.cos.ap-chengdu.myqcloud.com/20240627231414.png" style="max-width: 100%;"></a></p>
+<p>点击Code，回到首页<br>
+<a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/9fb3e514477b959d6162d4d8ec4fa2c56a54d2de96063d342e8b8a3ae836d3b0/68747470733a2f2f6f6273696469616e2d313332343931393831342e636f732e61702d6368656e6764752e6d7971636c6f75642e636f6d2f32303234303632373233313234342e706e67"><img src="https://camo.githubusercontent.com/9fb3e514477b959d6162d4d8ec4fa2c56a54d2de96063d342e8b8a3ae836d3b0/68747470733a2f2f6f6273696469616e2d313332343931393831342e636f732e61702d6368656e6764752e6d7971636c6f75642e636f6d2f32303234303632373233313234342e706e67" alt="" data-canonical-src="https://obsidian-1324919814.cos.ap-chengdu.myqcloud.com/20240627231244.png" style="max-width: 100%;"></a></p>
+<p>点击下方的链接，即可进入博客网页，如果没刷新，请多等待一会<br>
+<a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/a03a911a7e44e4e9140b814c73b6953c6317db4624e547a07827b93588e1234a/68747470733a2f2f6f6273696469616e2d313332343931393831342e636f732e61702d6368656e6764752e6d7971636c6f75642e636f6d2f32303234303632373233313332312e706e67"><img src="https://camo.githubusercontent.com/a03a911a7e44e4e9140b814c73b6953c6317db4624e547a07827b93588e1234a/68747470733a2f2f6f6273696469616e2d313332343931393831342e636f732e61702d6368656e6764752e6d7971636c6f75642e636f6d2f32303234303632373233313332312e706e67" alt="" data-canonical-src="https://obsidian-1324919814.cos.ap-chengdu.myqcloud.com/20240627231321.png" style="max-width: 100%;"></a></p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/aa386da6106915ce9861c55a1aaee747ec051d3797007a3b826129a4a293779b/68747470733a2f2f6f6273696469616e2d313332343931393831342e636f732e61702d6368656e6764752e6d7971636c6f75642e636f6d2f32303234303632373233313635392e706e67"><img src="https://camo.githubusercontent.com/aa386da6106915ce9861c55a1aaee747ec051d3797007a3b826129a4a293779b/68747470733a2f2f6f6273696469616e2d313332343931393831342e636f732e61702d6368656e6764752e6d7971636c6f75642e636f6d2f32303234303632373233313635392e706e67" alt="" data-canonical-src="https://obsidian-1324919814.cos.ap-chengdu.myqcloud.com/20240627231659.png" style="max-width: 100%;"></a></p>
+<h3>个性化主页信息</h3>
+<p>在等的过程中可以修改一下页面信息</p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/a20df411df42f9dd87ad8b265e30cf60e892e68536ca621aa84fdf5b7d755e38/68747470733a2f2f6f6273696469616e2d313332343931393831342e636f732e61702d6368656e6764752e6d7971636c6f75642e636f6d2f32303234303632373233313930392e706e67"><img src="https://camo.githubusercontent.com/a20df411df42f9dd87ad8b265e30cf60e892e68536ca621aa84fdf5b7d755e38/68747470733a2f2f6f6273696469616e2d313332343931393831342e636f732e61702d6368656e6764752e6d7971636c6f75642e636f6d2f32303234303632373233313930392e706e67" alt="" data-canonical-src="https://obsidian-1324919814.cos.ap-chengdu.myqcloud.com/20240627231909.png" style="max-width: 100%;"></a></p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/6202cf844f1c8aa417028bab25b507ff9efa0cc6666ef360922e52aba52a9b32/68747470733a2f2f6f6273696469616e2d313332343931393831342e636f732e61702d6368656e6764752e6d7971636c6f75642e636f6d2f32303234303632373233313935362e706e67"><img src="https://camo.githubusercontent.com/6202cf844f1c8aa417028bab25b507ff9efa0cc6666ef360922e52aba52a9b32/68747470733a2f2f6f6273696469616e2d313332343931393831342e636f732e61702d6368656e6764752e6d7971636c6f75642e636f6d2f32303234303632373233313935362e706e67" alt="" data-canonical-src="https://obsidian-1324919814.cos.ap-chengdu.myqcloud.com/20240627231956.png" style="max-width: 100%;"></a></p>
+<p>直接Edit<br>
+<a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/fbfd79bcf851969d2d32b727f8022d289fc039f567b11458fdb08a7fd2f99563/68747470733a2f2f6f6273696469616e2d313332343931393831342e636f732e61702d6368656e6764752e6d7971636c6f75642e636f6d2f32303234303632373233323032382e706e67"><img src="https://camo.githubusercontent.com/fbfd79bcf851969d2d32b727f8022d289fc039f567b11458fdb08a7fd2f99563/68747470733a2f2f6f6273696469616e2d313332343931393831342e636f732e61702d6368656e6764752e6d7971636c6f75642e636f6d2f32303234303632373233323032382e706e67" alt="" data-canonical-src="https://obsidian-1324919814.cos.ap-chengdu.myqcloud.com/20240627232028.png" style="max-width: 100%;"></a></p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/5c1cdc06018c7db84bf748838fa04c6d8f8a0d8abc6dc29bf542617797b82a2f/68747470733a2f2f6f6273696469616e2d313332343931393831342e636f732e61702d6368656e6764752e6d7971636c6f75642e636f6d2f32303234303632373233323135302e706e67"><img src="https://camo.githubusercontent.com/5c1cdc06018c7db84bf748838fa04c6d8f8a0d8abc6dc29bf542617797b82a2f/68747470733a2f2f6f6273696469616e2d313332343931393831342e636f732e61702d6368656e6764752e6d7971636c6f75642e636f6d2f32303234303632373233323135302e706e67" alt="" data-canonical-src="https://obsidian-1324919814.cos.ap-chengdu.myqcloud.com/20240627232150.png" style="max-width: 100%;"></a></p>
+<p>修改完毕后直接提交Commit<br>
+<a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/62453fc8fa7af18c9e8f7eca8041ccc9434ea9079505a397bd3ebd1c11042af4/68747470733a2f2f6f6273696469616e2d313332343931393831342e636f732e61702d6368656e6764752e6d7971636c6f75642e636f6d2f32303234303632373233323233322e706e67"><img src="https://camo.githubusercontent.com/62453fc8fa7af18c9e8f7eca8041ccc9434ea9079505a397bd3ebd1c11042af4/68747470733a2f2f6f6273696469616e2d313332343931393831342e636f732e61702d6368656e6764752e6d7971636c6f75642e636f6d2f32303234303632373233323233322e706e67" alt="" data-canonical-src="https://obsidian-1324919814.cos.ap-chengdu.myqcloud.com/20240627232232.png" style="max-width: 100%;"></a></p>
+<p>再去run workflow一下<br>
+<a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/50b372f503400f5135dcd4f4b2f2968021bd67ae29f01c6746146498a65f23cc/68747470733a2f2f6f6273696469616e2d313332343931393831342e636f732e61702d6368656e6764752e6d7971636c6f75642e636f6d2f32303234303632373233323530382e706e67"><img src="https://camo.githubusercontent.com/50b372f503400f5135dcd4f4b2f2968021bd67ae29f01c6746146498a65f23cc/68747470733a2f2f6f6273696469616e2d313332343931393831342e636f732e61702d6368656e6764752e6d7971636c6f75642e636f6d2f32303234303632373233323530382e706e67" alt="" data-canonical-src="https://obsidian-1324919814.cos.ap-chengdu.myqcloud.com/20240627232508.png" style="max-width: 100%;"></a><br>
+主页信息就改好了</p>
+<h2>博客网页成品</h2>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/2a4d415e58d5598251afce69ab4311291764edd875bd42b6725f448249782fa6/68747470733a2f2f6f6273696469616e2d313332343931393831342e636f732e61702d6368656e6764752e6d7971636c6f75642e636f6d2f32303234303632373233343630332e706e67"><img src="https://camo.githubusercontent.com/2a4d415e58d5598251afce69ab4311291764edd875bd42b6725f448249782fa6/68747470733a2f2f6f6273696469616e2d313332343931393831342e636f732e61702d6368656e6764752e6d7971636c6f75642e636f6d2f32303234303632373233343630332e706e67" alt="" data-canonical-src="https://obsidian-1324919814.cos.ap-chengdu.myqcloud.com/20240627234603.png" style="max-width: 100%;"></a></p>
+<h1>目前博客网站能实现的效果</h1>
+<h2>20240531 支持callout语法</h2>
+<div class="markdown-alert markdown-alert-note"><p class="markdown-alert-title"><svg class="octicon octicon-info mr-2" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"></path></svg>Note</p><p>Useful information that users should know, even when skimming content.</p>
+</div>
+<div class="markdown-alert markdown-alert-tip"><p class="markdown-alert-title"><svg class="octicon octicon-light-bulb mr-2" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="M8 1.5c-2.363 0-4 1.69-4 3.75 0 .984.424 1.625.984 2.304l.214.253c.223.264.47.556.673.848.284.411.537.896.621 1.49a.75.75 0 0 1-1.484.211c-.04-.282-.163-.547-.37-.847a8.456 8.456 0 0 0-.542-.68c-.084-.1-.173-.205-.268-.32C3.201 7.75 2.5 6.766 2.5 5.25 2.5 2.31 4.863 0 8 0s5.5 2.31 5.5 5.25c0 1.516-.701 2.5-1.328 3.259-.095.115-.184.22-.268.319-.207.245-.383.453-.541.681-.208.3-.33.565-.37.847a.751.751 0 0 1-1.485-.212c.084-.593.337-1.078.621-1.489.203-.292.45-.584.673-.848.075-.088.147-.173.213-.253.561-.679.985-1.32.985-2.304 0-2.06-1.637-3.75-4-3.75ZM5.75 12h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5ZM6 15.25a.75.75 0 0 1 .75-.75h2.5a.75.75 0 0 1 0 1.5h-2.5a.75.75 0 0 1-.75-.75Z"></path></svg>Tip</p><p>Helpful advice for doing things better or more easily.</p>
+</div>
+<div class="markdown-alert markdown-alert-important"><p class="markdown-alert-title"><svg class="octicon octicon-report mr-2" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="M0 1.75C0 .784.784 0 1.75 0h12.5C15.216 0 16 .784 16 1.75v9.5A1.75 1.75 0 0 1 14.25 13H8.06l-2.573 2.573A1.458 1.458 0 0 1 3 14.543V13H1.75A1.75 1.75 0 0 1 0 11.25Zm1.75-.25a.25.25 0 0 0-.25.25v9.5c0 .138.112.25.25.25h2a.75.75 0 0 1 .75.75v2.19l2.72-2.72a.749.749 0 0 1 .53-.22h6.5a.25.25 0 0 0 .25-.25v-9.5a.25.25 0 0 0-.25-.25Zm7 2.25v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 9a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"></path></svg>Important</p><p>Key information users need to know to achieve their goal.</p>
+</div>
+<div class="markdown-alert markdown-alert-warning"><p class="markdown-alert-title"><svg class="octicon octicon-alert mr-2" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="M6.457 1.047c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0 1 14.082 15H1.918a1.75 1.75 0 0 1-1.543-2.575Zm1.763.707a.25.25 0 0 0-.44 0L1.698 13.132a.25.25 0 0 0 .22.368h12.164a.25.25 0 0 0 .22-.368Zm.53 3.996v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"></path></svg>Warning</p><p>Urgent info that needs immediate user attention to avoid problems.</p>
+</div>
+<div class="markdown-alert markdown-alert-caution"><p class="markdown-alert-title"><svg class="octicon octicon-stop mr-2" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="M4.47.22A.749.749 0 0 1 5 0h6c.199 0 .389.079.53.22l4.25 4.25c.141.14.22.331.22.53v6a.749.749 0 0 1-.22.53l-4.25 4.25A.749.749 0 0 1 11 16H5a.749.749 0 0 1-.53-.22L.22 11.53A.749.749 0 0 1 0 11V5c0-.199.079-.389.22-.53Zm.84 1.28L1.5 5.31v5.38l3.81 3.81h5.38l3.81-3.81V5.31L10.69 1.5ZM8 4a.75.75 0 0 1 .75.75v3.5a.75.75 0 0 1-1.5 0v-3.5A.75.75 0 0 1 8 4Zm0 8a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"></path></svg>Caution</p><p>Advises about risks or negative outcomes of certain actions.</p>
+</div>
+<h2>20240531 支持Html标签</h2>
+<h3>iframe网站</h3>
+<pre class="notranslate"><code class="notranslate">`Gmeek-html&lt;iframe src="https://music.meekdai.com/#61" width="100%" height="460px" frameborder="0" allowfullscreen="true"&gt;&lt;/iframe&gt;`
+</code></pre>
+<h3>iframe视频</h3>
+<pre class="notranslate"><code class="notranslate">`Gmeek-html&lt;iframe src="//player.bilibili.com/player.html?isOutside=true&amp;aid=1255841768&amp;bvid=BV1YJ4m1u7hL&amp;cid=1597807674&amp;p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"&gt;&lt;/iframe&gt;`
+</code></pre>
+<pre class="notranslate"><code class="notranslate">`Gmeek-html&lt;iframe src="//player.bilibili.com/player.html?isOutside=true&amp;aid=1604800941&amp;bvid=BV1qm421M7Xs&amp;cid=1557311907&amp;p=1&amp;autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="100%" height="460px"&gt;&lt;/iframe&gt;`
+</code></pre>
+<h3>iframe音乐</h3></div>
+<div style="font-size:small;margin-top:8px;float:right;"></div>
+
+<button class="btn btn-block" type="button" onclick="openComments()" id="cmButton">评论</button>
+<div class="comments" id="comments"></div>
+
+</div>
+    <div id="footer">Copyright © <span id="year"></span><a href="https://selfbalancing.github.io"> 自权的SPACE </a>
+<p>
+<span id="runday"></span>Powered by <a href="https://meekdai.com/Gmeek.html" target="_blank">Gmeek</a>
+</p>
+
+<script>
+if(""!=""){
+    var now=new Date();
+    var startSite=new Date("");
+    var diff=now.getTime()-startSite.getTime();
+    var diffDay=Math.floor(diff/(1000*60*60*24));
+    document.getElementById("year").innerHTML=now.getFullYear();
+    if(""!=""){document.getElementById("runday").innerHTML=" • "+"网站运行"+diffDay+"天"+" • ";}
+    else{document.getElementById("runday").innerHTML="网站运行"+diffDay+"天"+" • ";}
+}
+</script>
+</div>
+</body>
+<script>
+var IconList={'sun': 'M8 10.5a2.5 2.5 0 100-5 2.5 2.5 0 000 5zM8 12a4 4 0 100-8 4 4 0 000 8zM8 0a.75.75 0 01.75.75v1.5a.75.75 0 01-1.5 0V.75A.75.75 0 018 0zm0 13a.75.75 0 01.75.75v1.5a.75.75 0 01-1.5 0v-1.5A.75.75 0 018 13zM2.343 2.343a.75.75 0 011.061 0l1.06 1.061a.75.75 0 01-1.06 1.06l-1.06-1.06a.75.75 0 010-1.06zm9.193 9.193a.75.75 0 011.06 0l1.061 1.06a.75.75 0 01-1.06 1.061l-1.061-1.06a.75.75 0 010-1.061zM16 8a.75.75 0 01-.75.75h-1.5a.75.75 0 010-1.5h1.5A.75.75 0 0116 8zM3 8a.75.75 0 01-.75.75H.75a.75.75 0 010-1.5h1.5A.75.75 0 013 8zm10.657-5.657a.75.75 0 010 1.061l-1.061 1.06a.75.75 0 11-1.06-1.06l1.06-1.06a.75.75 0 011.06 0zm-9.193 9.193a.75.75 0 010 1.06l-1.06 1.061a.75.75 0 11-1.061-1.06l1.06-1.061a.75.75 0 011.061 0z', 'moon': 'M9.598 1.591a.75.75 0 01.785-.175 7 7 0 11-8.967 8.967.75.75 0 01.961-.96 5.5 5.5 0 007.046-7.046.75.75 0 01.175-.786zm1.616 1.945a7 7 0 01-7.678 7.678 5.5 5.5 0 107.678-7.678z', 'sync': 'M1.705 8.005a.75.75 0 0 1 .834.656 5.5 5.5 0 0 0 9.592 2.97l-1.204-1.204a.25.25 0 0 1 .177-.427h3.646a.25.25 0 0 1 .25.25v3.646a.25.25 0 0 1-.427.177l-1.38-1.38A7.002 7.002 0 0 1 1.05 8.84a.75.75 0 0 1 .656-.834ZM8 2.5a5.487 5.487 0 0 0-4.131 1.869l1.204 1.204A.25.25 0 0 1 4.896 6H1.25A.25.25 0 0 1 1 5.75V2.104a.25.25 0 0 1 .427-.177l1.38 1.38A7.002 7.002 0 0 1 14.95 7.16a.75.75 0 0 1-1.49.178A5.5 5.5 0 0 0 8 2.5Z', 'home': 'M6.906.664a1.749 1.749 0 0 1 2.187 0l5.25 4.2c.415.332.657.835.657 1.367v7.019A1.75 1.75 0 0 1 13.25 15h-3.5a.75.75 0 0 1-.75-.75V9H7v5.25a.75.75 0 0 1-.75.75h-3.5A1.75 1.75 0 0 1 1 13.25V6.23c0-.531.242-1.034.657-1.366l5.25-4.2Zm1.25 1.171a.25.25 0 0 0-.312 0l-5.25 4.2a.25.25 0 0 0-.094.196v7.019c0 .138.112.25.25.25H5.5V8.25a.75.75 0 0 1 .75-.75h3.5a.75.75 0 0 1 .75.75v5.25h2.75a.25.25 0 0 0 .25-.25V6.23a.25.25 0 0 0-.094-.195Z', 'github': 'M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z'};
+var utterancesLoad=0;
+
+let themeSettings={
+    "dark": ["dark","moon","#00f0ff","dark-blue"],
+    "light": ["light","sun","#ff5000","github-light"],
+    "auto": ["auto","sync","","preferred-color-scheme"]
+};
+function changeTheme(mode, icon, color, utheme){
+    document.documentElement.setAttribute("data-color-mode",mode);
+    document.getElementById("themeSwitch").setAttribute("d",value=IconList[icon]);
+    document.getElementById("themeSwitch").parentNode.style.color=color;
+    if(utterancesLoad==1){utterancesTheme(utheme);}
+}
+function modeSwitch(){
+    let currentMode=document.documentElement.getAttribute('data-color-mode');
+    let newMode = currentMode === "light" ? "dark" : currentMode === "dark" ? "auto" : "light";
+    localStorage.setItem("meek_theme", newMode);
+    if(themeSettings[newMode]){
+        changeTheme(...themeSettings[newMode]);
+    }
+}
+function utterancesTheme(theme){
+    const message={type:'set-theme',theme: theme};
+    const iframe=document.getElementsByClassName('utterances-frame')[0];
+    iframe.contentWindow.postMessage(message,'https://utteranc.es');
+}
+if(themeSettings[theme]){changeTheme(...themeSettings[theme]);}
+console.log("\n %c Gmeek last https://github.com/Meekdai/Gmeek \n\n","padding:5px 0;background:#02d81d;color:#fff");
+</script>
+
+<script>
+document.getElementById("pathHome").setAttribute("d",IconList["home"]);
+document.getElementById("pathIssue").setAttribute("d",IconList["github"]);
+
+
+
+function openComments(){
+    cm=document.getElementById("comments");
+    cmButton=document.getElementById("cmButton");
+    cmButton.innerHTML="loading";
+    span=document.createElement("span");
+    span.setAttribute("class","AnimatedEllipsis");
+    cmButton.appendChild(span);
+
+    script=document.createElement("script");
+    script.setAttribute("src","https://utteranc.es/client.js");
+    script.setAttribute("repo","SelfBalancing/selfbalancing.github.io");
+    script.setAttribute("issue-term","title");
+    
+    if(localStorage.getItem("meek_theme")=="dark"){script.setAttribute("theme","dark-blue");}
+    else if(localStorage.getItem("meek_theme")=="light") {script.setAttribute("theme","github-light");}
+    else{script.setAttribute("theme","preferred-color-scheme");}
+    
+    script.setAttribute("crossorigin","anonymous");
+    script.setAttribute("async","");
+    cm.appendChild(script);
+
+    int=self.setInterval("iFrameLoading()",200);
+}
+
+function iFrameLoading(){
+    var utterances=document.getElementsByClassName('utterances');
+    if(utterances.length==1){
+        if(utterances[0].style.height!=""){
+            utterancesLoad=1;
+            int=window.clearInterval(int);
+            document.getElementById("cmButton").style.display="none";
+            console.log("utterances Load OK");
+        }
+    }
+}
+</script>
+
+
+</html>
