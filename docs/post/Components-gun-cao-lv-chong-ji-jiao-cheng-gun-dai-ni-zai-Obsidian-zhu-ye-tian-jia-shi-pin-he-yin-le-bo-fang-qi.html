@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html data-color-mode="light" data-dark-theme="dark" data-light-theme="light" lang="zh-CN">
+<head>
+    <meta content="text/html; charset=utf-8" http-equiv="content-type" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href='https://mirrors.sustech.edu.cn/cdnjs/ajax/libs/Primer/21.0.7/primer.css' rel='stylesheet' />
+    <link rel="icon" href="https://avatars.githubusercontent.com/u/174597645?v=4"><script>
+        let theme = localStorage.getItem("meek_theme") || "light";
+        document.documentElement.setAttribute("data-color-mode", theme);
+    </script>
+<meta name="description" content="
+
+![](https://obsidian-1324919814.cos.ap-chengdu.myqcloud.com/%E4%B8%BB%E9%A1%B5%E5%8A%A0%E4%B8%80%E4%B8%AA%E6%92%AD%E6%94%BE%E5%99%A8.png)
+## 前言
+
+前几天有群友询问能否在Components组件中显示Mp4文件，这个其实很好解决，Obsidian是可以显示大部分格式的视频文件的，只需搭配`![[视频.mp4]]`的语法就能显示，这时再搭配Components组件中的Markdown组件，即可完成视频文件的显示，这样就配置好了一个播放器组件。">
+<meta property="og:title" content="Components丨草履虫级教程丨带你在Obsidian主页添加视频和音乐播放器">
+<meta property="og:description" content="
+
+![](https://obsidian-1324919814.cos.ap-chengdu.myqcloud.com/%E4%B8%BB%E9%A1%B5%E5%8A%A0%E4%B8%80%E4%B8%AA%E6%92%AD%E6%94%BE%E5%99%A8.png)
+## 前言
+
+前几天有群友询问能否在Components组件中显示Mp4文件，这个其实很好解决，Obsidian是可以显示大部分格式的视频文件的，只需搭配`![[视频.mp4]]`的语法就能显示，这时再搭配Components组件中的Markdown组件，即可完成视频文件的显示，这样就配置好了一个播放器组件。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://selfbalancing.github.io/post/Components-gun-cao-lv-chong-ji-jiao-cheng-gun-dai-ni-zai-Obsidian-zhu-ye-tian-jia-shi-pin-he-yin-le-bo-fang-qi.html">
+<meta property="og:image" content="https://avatars.githubusercontent.com/u/174597645?v=4">
+<title>Components丨草履虫级教程丨带你在Obsidian主页添加视频和音乐播放器</title>
+
+
+</head>
+<style>
+body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;padding: 45px;font-size: 16px;font-family: sans-serif;line-height: 1.25;}
+#header{display:flex;padding-bottom:8px;border-bottom: 1px solid var(--borderColor-muted, var(--color-border-muted));margin-bottom: 16px;}
+#footer {margin-top:64px; text-align: center;font-size: small;}
+
+</style>
+
+<style>
+.postTitle{margin: auto 0;font-size:40px;font-weight:bold;}
+.title-right{display:flex;margin:auto 0 0 auto;}
+.title-right .circle{padding: 14px 16px;margin-right:8px;}
+#postBody{border-bottom: 1px solid var(--color-border-default);padding-bottom:36px;}
+#postBody hr{height:2px;}
+#cmButton{height:48px;margin-top:48px;}
+#comments{margin-top:64px;}
+.g-emoji{font-size:24px;}
+@media (max-width: 600px) {
+    body {padding: 8px;}
+    .postTitle{font-size:24px;}
+}
+</style>
+
+
+
+
+<body>
+    <div id="header">
+<h1 class="postTitle">Components丨草履虫级教程丨带你在Obsidian主页添加视频和音乐播放器</h1>
+<div class="title-right">
+    <a href="https://selfbalancing.github.io" id="buttonHome" class="btn btn-invisible circle" title="首页">
+        <svg class="octicon" width="16" height="16">
+            <path id="pathHome" fill-rule="evenodd"></path>
+        </svg>
+    </a>
+    
+    <a href="https://github.com/SelfBalancing/selfbalancing.github.io/issues/3" target="_blank" class="btn btn-invisible circle" title="Issue">
+        <svg class="octicon" width="16" height="16">
+            <path id="pathIssue" fill-rule="evenodd"></path>
+        </svg>
+    </a>
+    
+
+    <a class="btn btn-invisible circle" onclick="modeSwitch();" title="切换主题">
+        <svg class="octicon" width="16" height="16" >
+            <path id="themeSwitch" fill-rule="evenodd"></path>
+        </svg>
+    </a>
+
+</div>
+</div>
+    <div id="content">
+<div class="markdown-body" id="postBody"><p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/170fe550df33a9c26bfd4f46ebb8d04ab0d97bcdf55e7fd77f2e802db830eef7/68747470733a2f2f6f6273696469616e2d313332343931393831342e636f732e61702d6368656e6764752e6d7971636c6f75642e636f6d2f2545342542382542422545392541312542352545352538412541302545342542382538302545342542382541412545362539322541442545362539342542452545352539392541382e706e67"><img src="https://camo.githubusercontent.com/170fe550df33a9c26bfd4f46ebb8d04ab0d97bcdf55e7fd77f2e802db830eef7/68747470733a2f2f6f6273696469616e2d313332343931393831342e636f732e61702d6368656e6764752e6d7971636c6f75642e636f6d2f2545342542382542422545392541312542352545352538412541302545342542382538302545342542382541412545362539322541442545362539342542452545352539392541382e706e67" alt="" data-canonical-src="https://obsidian-1324919814.cos.ap-chengdu.myqcloud.com/%E4%B8%BB%E9%A1%B5%E5%8A%A0%E4%B8%80%E4%B8%AA%E6%92%AD%E6%94%BE%E5%99%A8.png" style="max-width: 100%;"></a></p>
+<h2>前言</h2>
+<p>前几天有群友询问能否在Components组件中显示Mp4文件，这个其实很好解决，Obsidian是可以显示大部分格式的视频文件的，只需搭配<code class="notranslate">![[视频.mp4]]</code>的语法就能显示，这时再搭配Components组件中的Markdown组件，即可完成视频文件的显示，这样就配置好了一个播放器组件。<br>
+<a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/63760899b21e691937f60e95890bfca49da376468d3f31100f9d35b978f1a9ae/68747470733a2f2f6f6273696469616e2d313332343931393831342e636f732e61702d6368656e6764752e6d7971636c6f75642e636f6d2f2545382541462541442545362542332539352545372541342542412545342542452538422e706e67"><img src="https://camo.githubusercontent.com/63760899b21e691937f60e95890bfca49da376468d3f31100f9d35b978f1a9ae/68747470733a2f2f6f6273696469616e2d313332343931393831342e636f732e61702d6368656e6764752e6d7971636c6f75642e636f6d2f2545382541462541442545362542332539352545372541342542412545342542452538422e706e67" alt="" data-canonical-src="https://obsidian-1324919814.cos.ap-chengdu.myqcloud.com/%E8%AF%AD%E6%B3%95%E7%A4%BA%E4%BE%8B.png" style="max-width: 100%;"></a><br>
+除了视频，音乐也能通过这样的方式组合成音乐播放器组件。<br>
+<a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/97cee6037681ab28b7ca8835d93140cbc7e94289f67f8ae1caa04447941bc6af/68747470733a2f2f6f6273696469616e2d313332343931393831342e636f732e61702d6368656e6764752e6d7971636c6f75642e636f6d2f2545392539462542332545342542392539302545362539322541442545362539342542452545352539392541382e706e67"><img src="https://camo.githubusercontent.com/97cee6037681ab28b7ca8835d93140cbc7e94289f67f8ae1caa04447941bc6af/68747470733a2f2f6f6273696469616e2d313332343931393831342e636f732e61702d6368656e6764752e6d7971636c6f75642e636f6d2f2545392539462542332545342542392539302545362539322541442545362539342542452545352539392541382e706e67" alt="" data-canonical-src="https://obsidian-1324919814.cos.ap-chengdu.myqcloud.com/%E9%9F%B3%E4%B9%90%E6%92%AD%E6%94%BE%E5%99%A8.png" style="max-width: 100%;"></a><br>
+可以将播放器组件放置于主页，和其他组件一起呈现，每次启动Obsidian后可以播放音乐。也可以将播放器放置于侧边，写累了可以点击放一首歌曲。<br>
+<a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/341303655b14e56bc69f33f97502b6aada9154bc8b43de4dacafd18d6beb1736/68747470733a2f2f6f6273696469616e2d313332343931393831342e636f732e61702d6368656e6764752e6d7971636c6f75642e636f6d2f2545342542452541372545382542452542392545362539322541442545362539342542452545352539392541382e706e67"><img src="https://camo.githubusercontent.com/341303655b14e56bc69f33f97502b6aada9154bc8b43de4dacafd18d6beb1736/68747470733a2f2f6f6273696469616e2d313332343931393831342e636f732e61702d6368656e6764752e6d7971636c6f75642e636f6d2f2545342542452541372545382542452542392545362539322541442545362539342542452545352539392541382e706e67" alt="" data-canonical-src="https://obsidian-1324919814.cos.ap-chengdu.myqcloud.com/%E4%BE%A7%E8%BE%B9%E6%92%AD%E6%94%BE%E5%99%A8.png" style="max-width: 100%;"></a><br>
+思路打开，这个播放器组件除了放本地的视频和音频，还能不能再来点花样，播放一下在线视频和自己的歌单音乐？<br>
+经过我的一番研究，以及在<code class="notranslate">@!惊佬</code>的帮助下，我整合出了几个有意思的播放器组件，更加美观，更加强大。</p>
+<p>展示的播放器组件已经整合成一个组合组件,公众号后台回复<code class="notranslate">播放器</code>即可获得下载地址。<a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/b0dea79fb99cdc64729a3709d4b0c142b41fb2cbc3e4d2b3a7886a151b7f4e59/68747470733a2f2f6f6273696469616e2d313332343931393831342e636f732e61702d6368656e6764752e6d7971636c6f75642e636f6d2f2545372542422538342545352539302538382545362539322541442545362539342542452545352539392541382e706e67"><img src="https://camo.githubusercontent.com/b0dea79fb99cdc64729a3709d4b0c142b41fb2cbc3e4d2b3a7886a151b7f4e59/68747470733a2f2f6f6273696469616e2d313332343931393831342e636f732e61702d6368656e6764752e6d7971636c6f75642e636f6d2f2545372542422538342545352539302538382545362539322541442545362539342542452545352539392541382e706e67" alt="" data-canonical-src="https://obsidian-1324919814.cos.ap-chengdu.myqcloud.com/%E7%BB%84%E5%90%88%E6%92%AD%E6%94%BE%E5%99%A8.png" style="max-width: 100%;"></a></p>
+<h2>效果展示</h2>
+<h3>视频播放器</h3>
+<h4>功能更强的本地播放器组件</h4>
+<p>支持调整音量与播放速度等功能</p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/57d659f11269ed38a0a1f1fdd8a94278b89f4d3c5f3a6982534648e99e8ec83f/68747470733a2f2f6f6273696469616e2d313332343931393831342e636f732e61702d6368656e6764752e6d7971636c6f75642e636f6d2f32303234303731373131303433332e706e67"><img src="https://camo.githubusercontent.com/57d659f11269ed38a0a1f1fdd8a94278b89f4d3c5f3a6982534648e99e8ec83f/68747470733a2f2f6f6273696469616e2d313332343931393831342e636f732e61702d6368656e6764752e6d7971636c6f75642e636f6d2f32303234303731373131303433332e706e67" alt="" data-canonical-src="https://obsidian-1324919814.cos.ap-chengdu.myqcloud.com/20240717110433.png" style="max-width: 100%;"></a></p>
+<h4>在线视频播放器</h4>
+<p>可以直接嵌入在线视频，不用将视频保存至本地了。</p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/78f6360dd6e85abb52725b0021dd64824d310d21e0d43d59eaa758fa28e27861/68747470733a2f2f6f6273696469616e2d313332343931393831342e636f732e61702d6368656e6764752e6d7971636c6f75642e636f6d2f2545362539342541462545362538432538312545352539432541382545372542412542462545382541372538362545392541322539312e706e67"><img src="https://camo.githubusercontent.com/78f6360dd6e85abb52725b0021dd64824d310d21e0d43d59eaa758fa28e27861/68747470733a2f2f6f6273696469616e2d313332343931393831342e636f732e61702d6368656e6764752e6d7971636c6f75642e636f6d2f2545362539342541462545362538432538312545352539432541382545372542412542462545382541372538362545392541322539312e706e67" alt="" data-canonical-src="https://obsidian-1324919814.cos.ap-chengdu.myqcloud.com/%E6%94%AF%E6%8C%81%E5%9C%A8%E7%BA%BF%E8%A7%86%E9%A2%91.png" style="max-width: 100%;"></a></p>
+<h3>音频播放器</h3>
+<h4>单曲网易云播放器</h4>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/2110a4ba376700bb901c19656a176f6f52fad50661aeecbcea287a43fdb7154c/68747470733a2f2f6f6273696469616e2d313332343931393831342e636f732e61702d6368656e6764752e6d7971636c6f75642e636f6d2f2545342542382538442545352542382541362545362541442538432545352538442539352545372539412538342545362539392541452545392538302539412545362539322541442545362539342542452545352539392541382e706e67"><img src="https://camo.githubusercontent.com/2110a4ba376700bb901c19656a176f6f52fad50661aeecbcea287a43fdb7154c/68747470733a2f2f6f6273696469616e2d313332343931393831342e636f732e61702d6368656e6764752e6d7971636c6f75642e636f6d2f2545342542382538442545352542382541362545362541442538432545352538442539352545372539412538342545362539392541452545392538302539412545362539322541442545362539342542452545352539392541382e706e67" alt="" data-canonical-src="https://obsidian-1324919814.cos.ap-chengdu.myqcloud.com/%E4%B8%8D%E5%B8%A6%E6%AD%8C%E5%8D%95%E7%9A%84%E6%99%AE%E9%80%9A%E6%92%AD%E6%94%BE%E5%99%A8.png" style="max-width: 100%;"></a></p>
+<h4>带歌单的网易云播放器</h4>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/531b7c8c3cda34313643c18eed90e8b3ae53debfce07a0b0a30a97f6da93ad82/68747470733a2f2f6f6273696469616e2d313332343931393831342e636f732e61702d6368656e6764752e6d7971636c6f75642e636f6d2f254539253946254233254534254239253930254536253932254144254536253934254245254535253939254138312e706e67"><img src="https://camo.githubusercontent.com/531b7c8c3cda34313643c18eed90e8b3ae53debfce07a0b0a30a97f6da93ad82/68747470733a2f2f6f6273696469616e2d313332343931393831342e636f732e61702d6368656e6764752e6d7971636c6f75642e636f6d2f254539253946254233254534254239253930254536253932254144254536253934254245254535253939254138312e706e67" alt="" data-canonical-src="https://obsidian-1324919814.cos.ap-chengdu.myqcloud.com/%E9%9F%B3%E4%B9%90%E6%92%AD%E6%94%BE%E5%99%A81.png" style="max-width: 100%;"></a></p>
+<h4>随机在线播放器</h4>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/95168de2ff7fb0c75b6cbf134c458f41cb7dfe4337031b3570d6355ad4413029/68747470733a2f2f6f6273696469616e2d313332343931393831342e636f732e61702d6368656e6764752e6d7971636c6f75642e636f6d2f254536253932254144254536253934254245254535253939254138312e676966"><img src="https://camo.githubusercontent.com/95168de2ff7fb0c75b6cbf134c458f41cb7dfe4337031b3570d6355ad4413029/68747470733a2f2f6f6273696469616e2d313332343931393831342e636f732e61702d6368656e6764752e6d7971636c6f75642e636f6d2f254536253932254144254536253934254245254535253939254138312e676966" alt="" data-canonical-src="https://obsidian-1324919814.cos.ap-chengdu.myqcloud.com/%E6%92%AD%E6%94%BE%E5%99%A81.gif" style="max-width: 100%;"></a></p>
+<h2>配置教程</h2>
+<h3>视频播放器组件</h3>
+<h4>功能更强的本地播放器组件</h4>
+<p>在Obsidian中增强一下默认播放器的功能，图一是默认播放器。<br>
+<a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/63760899b21e691937f60e95890bfca49da376468d3f31100f9d35b978f1a9ae/68747470733a2f2f6f6273696469616e2d313332343931393831342e636f732e61702d6368656e6764752e6d7971636c6f75642e636f6d2f2545382541462541442545362542332539352545372541342542412545342542452538422e706e67"><img src="https://camo.githubusercontent.com/63760899b21e691937f60e95890bfca49da376468d3f31100f9d35b978f1a9ae/68747470733a2f2f6f6273696469616e2d313332343931393831342e636f732e61702d6368656e6764752e6d7971636c6f75642e636f6d2f2545382541462541442545362542332539352545372541342542412545342542452538422e706e67" alt="" data-canonical-src="https://obsidian-1324919814.cos.ap-chengdu.myqcloud.com/%E8%AF%AD%E6%B3%95%E7%A4%BA%E4%BE%8B.png" style="max-width: 100%;"></a></p>
+<p>图二是增强的播放器<br>
+<a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/57d659f11269ed38a0a1f1fdd8a94278b89f4d3c5f3a6982534648e99e8ec83f/68747470733a2f2f6f6273696469616e2d313332343931393831342e636f732e61702d6368656e6764752e6d7971636c6f75642e636f6d2f32303234303731373131303433332e706e67"><img src="https://camo.githubusercontent.com/57d659f11269ed38a0a1f1fdd8a94278b89f4d3c5f3a6982534648e99e8ec83f/68747470733a2f2f6f6273696469616e2d313332343931393831342e636f732e61702d6368656e6764752e6d7971636c6f75642e636f6d2f32303234303731373131303433332e706e67" alt="" data-canonical-src="https://obsidian-1324919814.cos.ap-chengdu.myqcloud.com/20240717110433.png" style="max-width: 100%;"></a></p>
+<p>通过<code class="notranslate">Media Extended</code>插件对默认的播放器进行了增强，下载地址如下</p>
+<pre class="notranslate"><code class="notranslate">[PKM-er/media-extended: enhanced media(video/audio) playback for obsidian.md (github.com)](https://github.com/PKM-er/media-extended)
+</code></pre>
+<p>直接启用插件，即可增强默认播放器<br>
+增强本地的视频播放是<code class="notranslate">Media Extended</code>功能的一个体现，不过<code class="notranslate">Media Extended</code>最强的还是它能够直接在Obsidian中播放在线视频，使得我们可以通过Components配置一个在线视频播放器组件。</p>
+<h4>在线视频播放器</h4>
+<p>配置过程十分简易：</p>
+<ol>
+<li>打开B站找到相应的视频</li>
+<li>复制视频的地址链接</li>
+<li>启动Obsidian，创建组件</li>
+<li>选择创建Markdown组件，<code class="notranslate">内容类型</code>为<code class="notranslate">文本内容</code></li>
+<li>在框内填写<code class="notranslate">![](视频的地址链接)</code>，括号内填写视频的地址链接</li>
+</ol>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/0b7a4f9c710ab252c4f435adc048d5ccaeeda688f64826a0f5b6c3fc353750e6/68747470733a2f2f6f6273696469616e2d313332343931393831342e636f732e61702d6368656e6764752e6d7971636c6f75642e636f6d2f32303234303731373230353334332e706e67"><img src="https://camo.githubusercontent.com/0b7a4f9c710ab252c4f435adc048d5ccaeeda688f64826a0f5b6c3fc353750e6/68747470733a2f2f6f6273696469616e2d313332343931393831342e636f732e61702d6368656e6764752e6d7971636c6f75642e636f6d2f32303234303731373230353334332e706e67" alt="" data-canonical-src="https://obsidian-1324919814.cos.ap-chengdu.myqcloud.com/20240717205343.png" style="max-width: 100%;"></a></p>
+<p>如果你想让播放器组件中视频的画质更高，可以通过<code class="notranslate">Media Extended</code>插件的管理界面，登录上自己的账号，可以获得更清晰的画质。</p>
+<ol>
+<li>在设置中打开<code class="notranslate">Media Extended</code>的管理界面<br>
+<a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/7668e96b64b4fa98b1eb22f93cb3b43ab20b5b29f327d0899935157ea7c4fc94/68747470733a2f2f6f6273696469616e2d313332343931393831342e636f732e61702d6368656e6764752e6d7971636c6f75642e636f6d2f2545372539392542422545352542442539352545342542382538302545342542382538422545372542442539312545372541422539392e706e67"><img src="https://camo.githubusercontent.com/7668e96b64b4fa98b1eb22f93cb3b43ab20b5b29f327d0899935157ea7c4fc94/68747470733a2f2f6f6273696469616e2d313332343931393831342e636f732e61702d6368656e6764752e6d7971636c6f75642e636f6d2f2545372539392542422545352542442539352545342542382538302545342542382538422545372542442539312545372541422539392e706e67" alt="" data-canonical-src="https://obsidian-1324919814.cos.ap-chengdu.myqcloud.com/%E7%99%BB%E5%BD%95%E4%B8%80%E4%B8%8B%E7%BD%91%E7%AB%99.png" style="max-width: 100%;"></a></li>
+<li>点击<code class="notranslate">Login</code>的<code class="notranslate">Open broswer</code>打开内置浏览器<br>
+<a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/25ef72bbb625b4ff014a76727eb09ae5c2aa0b3f73be75337d32f91e69054cc9/68747470733a2f2f6f6273696469616e2d313332343931393831342e636f732e61702d6368656e6764752e6d7971636c6f75642e636f6d2f422545372541422539392545372539392542422545352542442539352545362542432539342545372541342542412e706e67"><img src="https://camo.githubusercontent.com/25ef72bbb625b4ff014a76727eb09ae5c2aa0b3f73be75337d32f91e69054cc9/68747470733a2f2f6f6273696469616e2d313332343931393831342e636f732e61702d6368656e6764752e6d7971636c6f75642e636f6d2f422545372541422539392545372539392542422545352542442539352545362542432539342545372541342542412e706e67" alt="" data-canonical-src="https://obsidian-1324919814.cos.ap-chengdu.myqcloud.com/B%E7%AB%99%E7%99%BB%E5%BD%95%E6%BC%94%E7%A4%BA.png" style="max-width: 100%;"></a></li>
+<li>在上方框内输入<code class="notranslate">https://www.bilibili.com</code>，然后点击头像框进行登录。此时播放器组件将拥有高清画质</li>
+</ol>
+<h3>音乐播放器组件</h3>
+<h4>单曲网易云播放器</h4>
+<p>单首歌曲的网易云播放器是通过iframe实现的，可以在网易云网页播放界面点击<code class="notranslate">生成外链播放器</code>即可获取。</p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/e1638014e63748b9375d4bbb081483ecd16ab874d7d472fc222749fed33772e2/68747470733a2f2f6f6273696469616e2d313332343931393831342e636f732e61702d6368656e6764752e6d7971636c6f75642e636f6d2f2545382538452542372545352542452539372545352541342539362545392539332542452545362539322541442545362539342542452545352539392541382e706e67"><img src="https://camo.githubusercontent.com/e1638014e63748b9375d4bbb081483ecd16ab874d7d472fc222749fed33772e2/68747470733a2f2f6f6273696469616e2d313332343931393831342e636f732e61702d6368656e6764752e6d7971636c6f75642e636f6d2f2545382538452542372545352542452539372545352541342539362545392539332542452545362539322541442545362539342542452545352539392541382e706e67" alt="" data-canonical-src="https://obsidian-1324919814.cos.ap-chengdu.myqcloud.com/%E8%8E%B7%E5%BE%97%E5%A4%96%E9%93%BE%E6%92%AD%E6%94%BE%E5%99%A8.png" style="max-width: 100%;"></a></p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/65812e596dce098fc3d5f486819e022c90b47949adca8b56691fe1ef60b83ceb/68747470733a2f2f6f6273696469616e2d313332343931393831342e636f732e61702d6368656e6764752e6d7971636c6f75642e636f6d2f254539253835253844254537254244254145696672616d652e706e67"><img src="https://camo.githubusercontent.com/65812e596dce098fc3d5f486819e022c90b47949adca8b56691fe1ef60b83ceb/68747470733a2f2f6f6273696469616e2d313332343931393831342e636f732e61702d6368656e6764752e6d7971636c6f75642e636f6d2f254539253835253844254537254244254145696672616d652e706e67" alt="" data-canonical-src="https://obsidian-1324919814.cos.ap-chengdu.myqcloud.com/%E9%85%8D%E7%BD%AEiframe.png" style="max-width: 100%;"></a></p>
+<p>将生成的HTML代码复制至Obsidian中，此时还无法显示播放器</p>
+<pre class="notranslate"><code class="notranslate">&lt;iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&amp;id=2158973221&amp;auto=1&amp;height=66"&gt;&lt;/iframe&gt;
+</code></pre>
+<p>需要在<code class="notranslate">//music.163.com</code>的前面加上<code class="notranslate">http:</code>才能在Obsidian中显示</p>
+<pre class="notranslate"><code class="notranslate">&lt;iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="http://music.163.com/outchain/player?type=2&amp;id=2158973221&amp;auto=1&amp;height=66"&gt;&lt;/iframe&gt;
+</code></pre>
+<p>简单讲解一下这个代码</p>
+<ol>
+<li>如果你想改宽高尺寸的话，修改这里的数字即可：<code class="notranslate">width=330 height=86 </code></li>
+<li>目前是默认自动播放，如果要修改为手动播放，修改此处的<code class="notranslate">1</code>改为<code class="notranslate">0</code>即可：<code class="notranslate">auto=1</code></li>
+<li>如果需要修改单曲，修改id后的数字即可：<code class="notranslate">id=2158973221</code><br>
+这个id还是比较好获取的，点击音乐分享出去，选择<code class="notranslate">复制链接</code><br>
+<a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/c1af0c85c4225373be298240291f9a57dd585974734f672bf0207e792860cf38/68747470733a2f2f6f6273696469616e2d313332343931393831342e636f732e61702d6368656e6764752e6d7971636c6f75642e636f6d2f25453525383825383625453425424125414225453925394625423325453425423925393025453825384525423725453525384625393669642e706e67"><img src="https://camo.githubusercontent.com/c1af0c85c4225373be298240291f9a57dd585974734f672bf0207e792860cf38/68747470733a2f2f6f6273696469616e2d313332343931393831342e636f732e61702d6368656e6764752e6d7971636c6f75642e636f6d2f25453525383825383625453425424125414225453925394625423325453425423925393025453825384525423725453525384625393669642e706e67" alt="" data-canonical-src="https://obsidian-1324919814.cos.ap-chengdu.myqcloud.com/%E5%88%86%E4%BA%AB%E9%9F%B3%E4%B9%90%E8%8E%B7%E5%8F%96id.png" style="max-width: 100%;"></a><br>
+<code class="notranslate">复制链接</code>的文本中就有对应音乐的id<br>
+<a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/73f88382e3747bca7eee04eb46c98c2fabb9269d290775b5b5db4afb8a7ade6c/68747470733a2f2f6f6273696469616e2d313332343931393831342e636f732e61702d6368656e6764752e6d7971636c6f75642e636f6d2f25453825384525423725453525384625393625453725394125383469642e706e67"><img src="https://camo.githubusercontent.com/73f88382e3747bca7eee04eb46c98c2fabb9269d290775b5b5db4afb8a7ade6c/68747470733a2f2f6f6273696469616e2d313332343931393831342e636f732e61702d6368656e6764752e6d7971636c6f75642e636f6d2f25453825384525423725453525384625393625453725394125383469642e706e67" alt="" data-canonical-src="https://obsidian-1324919814.cos.ap-chengdu.myqcloud.com/%E8%8E%B7%E5%8F%96%E7%9A%84id.png" style="max-width: 100%;"></a><br>
+将此id单独复制出来后，替换掉播放器代码中的id即可</li>
+</ol>
+<p>然后将此播放器代码放置于Components的Markdown组件中，即可显示出一个播放器组件。<br>
+可能长宽不是特别适配，需要自己修改一下代码中<code class="notranslate">width=330 height=86 </code>对应的数字进行调整。</p>
+<h4>带歌单的网易云播放器</h4>
+<p>步骤与上面说的差不多，选择歌单后，点击生成外链播放器即可获得歌单的播放器代码，自行进行修改和适配。<br>
+<a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/ba29b6177c771d30994383ac2b0ea843f6ab1e0d4e3951bce623914af830ad7e/68747470733a2f2f6f6273696469616e2d313332343931393831342e636f732e61702d6368656e6764752e6d7971636c6f75642e636f6d2f2545362541442538432545352538442539352545372539412538342545362539322541442545362539342542452545352539392541382e706e67"><img src="https://camo.githubusercontent.com/ba29b6177c771d30994383ac2b0ea843f6ab1e0d4e3951bce623914af830ad7e/68747470733a2f2f6f6273696469616e2d313332343931393831342e636f732e61702d6368656e6764752e6d7971636c6f75642e636f6d2f2545362541442538432545352538442539352545372539412538342545362539322541442545362539342542452545352539392541382e706e67" alt="" data-canonical-src="https://obsidian-1324919814.cos.ap-chengdu.myqcloud.com/%E6%AD%8C%E5%8D%95%E7%9A%84%E6%92%AD%E6%94%BE%E5%99%A8.png" style="max-width: 100%;"></a></p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/531b7c8c3cda34313643c18eed90e8b3ae53debfce07a0b0a30a97f6da93ad82/68747470733a2f2f6f6273696469616e2d313332343931393831342e636f732e61702d6368656e6764752e6d7971636c6f75642e636f6d2f254539253946254233254534254239253930254536253932254144254536253934254245254535253939254138312e706e67"><img src="https://camo.githubusercontent.com/531b7c8c3cda34313643c18eed90e8b3ae53debfce07a0b0a30a97f6da93ad82/68747470733a2f2f6f6273696469616e2d313332343931393831342e636f732e61702d6368656e6764752e6d7971636c6f75642e636f6d2f254539253946254233254534254239253930254536253932254144254536253934254245254535253939254138312e706e67" alt="" data-canonical-src="https://obsidian-1324919814.cos.ap-chengdu.myqcloud.com/%E9%9F%B3%E4%B9%90%E6%92%AD%E6%94%BE%E5%99%A81.png" style="max-width: 100%;"></a></p>
+<p>这里<code class="notranslate">@!惊佬</code>分享了魔改后更好玩的歌单播放器组件，可以在每次启动页面时，从填入的id中随机选择一个歌单进行播放</p>
+<pre class="notranslate"><code class="notranslate">```dataviewjs
+let arr = [778413627, 2323555471, 7354648923, 360062344, 5454637196, 2961061456];  // 歌单id数组
+let randomIndex = Math.floor(Math.random() * arr.length);  // 生成一个随机索引
+let randomElement = arr[randomIndex];  // 使用这个索引从数组中选择一个元素
+dv.paragraph(`&lt;iframe title="iframe" src="https://music.163.com/outchain/player?type=0&amp;amp;id=${randomElement}&amp;amp;auto=0&amp;amp;height=240" sandbox="allow-same-origin allow-scripts allow-popups allow-forms" scrolling="no" style="width: 100%; border: 0px; height: 240px;" class="iframe"&gt;&lt;/iframe&gt;`)
+```
+</code></pre>
+<p>此段代码可以直接在Markdown组件或Dataviewjs代码中进行部署。</p>
+<p>其实网易云音乐的这个外链播放器很强的🥰，不仅能放单曲、歌单，甚至专辑、电台、有声书也能生成外链播放器，步骤都大同小异。<br>
+<a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/115b64af42fa9eafddd3594ba5c5384bb882e810db2dc66853f2fbd70694111d/68747470733a2f2f6f6273696469616e2d313332343931393831342e636f732e61702d6368656e6764752e6d7971636c6f75642e636f6d2f2545382542462539382545382538332542442545352542352538432545352538352541352545362539432538392545352541332542302545342542392541362e706e67"><img src="https://camo.githubusercontent.com/115b64af42fa9eafddd3594ba5c5384bb882e810db2dc66853f2fbd70694111d/68747470733a2f2f6f6273696469616e2d313332343931393831342e636f732e61702d6368656e6764752e6d7971636c6f75642e636f6d2f2545382542462539382545382538332542442545352542352538432545352538352541352545362539432538392545352541332542302545342542392541362e706e67" alt="" data-canonical-src="https://obsidian-1324919814.cos.ap-chengdu.myqcloud.com/%E8%BF%98%E8%83%BD%E5%B5%8C%E5%85%A5%E6%9C%89%E5%A3%B0%E4%B9%A6.png" style="max-width: 100%;"></a></p>
+<h4>随机在线播放器</h4>
+<p>这个就是做的比较好看，缺点就是不能自定义歌单，不过也有几十首歌曲可以选择。<br>
+这个组件也放在组合的播放器了，公众号后台回复<code class="notranslate">播放器</code>即可获取🥰</p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/95168de2ff7fb0c75b6cbf134c458f41cb7dfe4337031b3570d6355ad4413029/68747470733a2f2f6f6273696469616e2d313332343931393831342e636f732e61702d6368656e6764752e6d7971636c6f75642e636f6d2f254536253932254144254536253934254245254535253939254138312e676966"><img src="https://camo.githubusercontent.com/95168de2ff7fb0c75b6cbf134c458f41cb7dfe4337031b3570d6355ad4413029/68747470733a2f2f6f6273696469616e2d313332343931393831342e636f732e61702d6368656e6764752e6d7971636c6f75642e636f6d2f254536253932254144254536253934254245254535253939254138312e676966" alt="" data-canonical-src="https://obsidian-1324919814.cos.ap-chengdu.myqcloud.com/%E6%92%AD%E6%94%BE%E5%99%A81.gif" style="max-width: 100%;"></a></p>
+<p>今天主要使用的是Markdown组件，后续会持续讲解其他组件的使用教程，最近几期会讲解一下<code class="notranslate">摘录组件</code>和其他插件的配合使用，感兴趣的可以关注一下！</p>
+<p><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/3f03f80e5a36d5be5cf2e0e7bca24a0bc3a2e23aba9a3730cfd0f090f7c87ab6/68747470733a2f2f6f6273696469616e2d313332343931393831342e636f732e61702d6368656e6764752e6d7971636c6f75642e636f6d2f2545362541302542392545362538442541452545392539432538302545362542312538322545382542462539422545382541312538432545392538302538392545362538422541392e706e67"><img src="https://camo.githubusercontent.com/3f03f80e5a36d5be5cf2e0e7bca24a0bc3a2e23aba9a3730cfd0f090f7c87ab6/68747470733a2f2f6f6273696469616e2d313332343931393831342e636f732e61702d6368656e6764752e6d7971636c6f75642e636f6d2f2545362541302542392545362538442541452545392539432538302545362542312538322545382542462539422545382541312538432545392538302538392545362538422541392e706e67" alt="" data-canonical-src="https://obsidian-1324919814.cos.ap-chengdu.myqcloud.com/%E6%A0%B9%E6%8D%AE%E9%9C%80%E6%B1%82%E8%BF%9B%E8%A1%8C%E9%80%89%E6%8B%A9.png" style="max-width: 100%;"></a></p></div>
+<div style="font-size:small;margin-top:8px;float:right;"></div>
+
+<button class="btn btn-block" type="button" onclick="openComments()" id="cmButton">评论</button>
+<div class="comments" id="comments"></div>
+
+</div>
+    <div id="footer">Copyright © <span id="year"></span><a href="https://selfbalancing.github.io"> 自权的SPACE </a>
+<p>
+<span id="runday"></span>Powered by <a href="https://meekdai.com/Gmeek.html" target="_blank">Gmeek</a>
+</p>
+
+<script>
+if(""!=""){
+    var now=new Date();
+    var startSite=new Date("");
+    var diff=now.getTime()-startSite.getTime();
+    var diffDay=Math.floor(diff/(1000*60*60*24));
+    document.getElementById("year").innerHTML=now.getFullYear();
+    if(""!=""){document.getElementById("runday").innerHTML=" • "+"网站运行"+diffDay+"天"+" • ";}
+    else{document.getElementById("runday").innerHTML="网站运行"+diffDay+"天"+" • ";}
+}
+</script>
+</div>
+</body>
+<script>
+var IconList={'sun': 'M8 10.5a2.5 2.5 0 100-5 2.5 2.5 0 000 5zM8 12a4 4 0 100-8 4 4 0 000 8zM8 0a.75.75 0 01.75.75v1.5a.75.75 0 01-1.5 0V.75A.75.75 0 018 0zm0 13a.75.75 0 01.75.75v1.5a.75.75 0 01-1.5 0v-1.5A.75.75 0 018 13zM2.343 2.343a.75.75 0 011.061 0l1.06 1.061a.75.75 0 01-1.06 1.06l-1.06-1.06a.75.75 0 010-1.06zm9.193 9.193a.75.75 0 011.06 0l1.061 1.06a.75.75 0 01-1.06 1.061l-1.061-1.06a.75.75 0 010-1.061zM16 8a.75.75 0 01-.75.75h-1.5a.75.75 0 010-1.5h1.5A.75.75 0 0116 8zM3 8a.75.75 0 01-.75.75H.75a.75.75 0 010-1.5h1.5A.75.75 0 013 8zm10.657-5.657a.75.75 0 010 1.061l-1.061 1.06a.75.75 0 11-1.06-1.06l1.06-1.06a.75.75 0 011.06 0zm-9.193 9.193a.75.75 0 010 1.06l-1.06 1.061a.75.75 0 11-1.061-1.06l1.06-1.061a.75.75 0 011.061 0z', 'moon': 'M9.598 1.591a.75.75 0 01.785-.175 7 7 0 11-8.967 8.967.75.75 0 01.961-.96 5.5 5.5 0 007.046-7.046.75.75 0 01.175-.786zm1.616 1.945a7 7 0 01-7.678 7.678 5.5 5.5 0 107.678-7.678z', 'sync': 'M1.705 8.005a.75.75 0 0 1 .834.656 5.5 5.5 0 0 0 9.592 2.97l-1.204-1.204a.25.25 0 0 1 .177-.427h3.646a.25.25 0 0 1 .25.25v3.646a.25.25 0 0 1-.427.177l-1.38-1.38A7.002 7.002 0 0 1 1.05 8.84a.75.75 0 0 1 .656-.834ZM8 2.5a5.487 5.487 0 0 0-4.131 1.869l1.204 1.204A.25.25 0 0 1 4.896 6H1.25A.25.25 0 0 1 1 5.75V2.104a.25.25 0 0 1 .427-.177l1.38 1.38A7.002 7.002 0 0 1 14.95 7.16a.75.75 0 0 1-1.49.178A5.5 5.5 0 0 0 8 2.5Z', 'home': 'M6.906.664a1.749 1.749 0 0 1 2.187 0l5.25 4.2c.415.332.657.835.657 1.367v7.019A1.75 1.75 0 0 1 13.25 15h-3.5a.75.75 0 0 1-.75-.75V9H7v5.25a.75.75 0 0 1-.75.75h-3.5A1.75 1.75 0 0 1 1 13.25V6.23c0-.531.242-1.034.657-1.366l5.25-4.2Zm1.25 1.171a.25.25 0 0 0-.312 0l-5.25 4.2a.25.25 0 0 0-.094.196v7.019c0 .138.112.25.25.25H5.5V8.25a.75.75 0 0 1 .75-.75h3.5a.75.75 0 0 1 .75.75v5.25h2.75a.25.25 0 0 0 .25-.25V6.23a.25.25 0 0 0-.094-.195Z', 'github': 'M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z'};
+var utterancesLoad=0;
+
+let themeSettings={
+    "dark": ["dark","moon","#00f0ff","dark-blue"],
+    "light": ["light","sun","#ff5000","github-light"],
+    "auto": ["auto","sync","","preferred-color-scheme"]
+};
+function changeTheme(mode, icon, color, utheme){
+    document.documentElement.setAttribute("data-color-mode",mode);
+    document.getElementById("themeSwitch").setAttribute("d",value=IconList[icon]);
+    document.getElementById("themeSwitch").parentNode.style.color=color;
+    if(utterancesLoad==1){utterancesTheme(utheme);}
+}
+function modeSwitch(){
+    let currentMode=document.documentElement.getAttribute('data-color-mode');
+    let newMode = currentMode === "light" ? "dark" : currentMode === "dark" ? "auto" : "light";
+    localStorage.setItem("meek_theme", newMode);
+    if(themeSettings[newMode]){
+        changeTheme(...themeSettings[newMode]);
+    }
+}
+function utterancesTheme(theme){
+    const message={type:'set-theme',theme: theme};
+    const iframe=document.getElementsByClassName('utterances-frame')[0];
+    iframe.contentWindow.postMessage(message,'https://utteranc.es');
+}
+if(themeSettings[theme]){changeTheme(...themeSettings[theme]);}
+console.log("\n %c Gmeek last https://github.com/Meekdai/Gmeek \n\n","padding:5px 0;background:#02d81d;color:#fff");
+</script>
+
+<script>
+document.getElementById("pathHome").setAttribute("d",IconList["home"]);
+document.getElementById("pathIssue").setAttribute("d",IconList["github"]);
+
+
+
+function openComments(){
+    cm=document.getElementById("comments");
+    cmButton=document.getElementById("cmButton");
+    cmButton.innerHTML="loading";
+    span=document.createElement("span");
+    span.setAttribute("class","AnimatedEllipsis");
+    cmButton.appendChild(span);
+
+    script=document.createElement("script");
+    script.setAttribute("src","https://utteranc.es/client.js");
+    script.setAttribute("repo","SelfBalancing/selfbalancing.github.io");
+    script.setAttribute("issue-term","title");
+    
+    if(localStorage.getItem("meek_theme")=="dark"){script.setAttribute("theme","dark-blue");}
+    else if(localStorage.getItem("meek_theme")=="light") {script.setAttribute("theme","github-light");}
+    else{script.setAttribute("theme","preferred-color-scheme");}
+    
+    script.setAttribute("crossorigin","anonymous");
+    script.setAttribute("async","");
+    cm.appendChild(script);
+
+    int=self.setInterval("iFrameLoading()",200);
+}
+
+function iFrameLoading(){
+    var utterances=document.getElementsByClassName('utterances');
+    if(utterances.length==1){
+        if(utterances[0].style.height!=""){
+            utterancesLoad=1;
+            int=window.clearInterval(int);
+            document.getElementById("cmButton").style.display="none";
+            console.log("utterances Load OK");
+        }
+    }
+}
+</script>
+
+
+</html>
